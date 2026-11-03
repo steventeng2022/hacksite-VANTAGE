@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant" data-runtime="browser">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="VANTAGE 是完全虛構、隔離的進階軌道任務控制資安教育靶場。">
+  <meta name="theme-color" content="#071018">
+  <title>Operations Overview · VANTAGE</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <div id="shell" class="shell">
+    <aside class="sidebar" aria-label="VANTAGE 主導覽">
+      <a class="brand" href="#/" aria-label="VANTAGE 工作總覽">
+        <span class="brand-mark" aria-hidden="true"><i></i><b></b></span>
+        <span><strong>VANTAGE</strong><small>ORBITAL CONTROL</small></span>
+      </a>
+      <div class="mission-context">
+        <span class="context-kicker">ACTIVE MISSION</span>
+        <button id="mission-switcher" class="mission-switcher" type="button">
+          <span class="mission-badge">A7</span><span><b>AURORA-7</b><small>Northstar Dynamics</small></span><span aria-hidden="true">⌄</span>
+        </button>
+      </div>
+      <nav id="primary-nav" class="primary-nav"></nav>
+      <div class="sidebar-foot">
+        <button id="lab-open" class="lab-launch" type="button">
+          <span><b>BLACK ORBIT</b><small>Research Matrix</small></span><strong id="lab-progress-mini">0/10</strong>
+        </button>
+        <div class="operator"><span class="avatar">EP</span><span><b>Elena Park</b><small>Mission Operator</small></span><button id="connection-open" aria-label="連線資訊">•••</button></div>
+      </div>
+    </aside>
+    <section class="workspace">
+      <header class="topbar">
+        <div class="route-title"><span class="pulse-dot"></span><span id="route-title">Operations Overview</span></div>
+        <div class="time-cluster"><span><small>MISSION ELAPSED</small><b id="mission-time">T+042:18:07</b></span><span><small>UTC</small><b id="utc-time">20:41:12</b></span><span class="handoff"><small>STATION HANDOFF</small><b id="handoff-time">08:24</b></span></div>
+        <button id="global-search" class="global-search" type="button"><span>⌕</span><span>搜尋任務、資產或事件</span><kbd>⌘ K</kbd></button>
+      </header>
+      <div class="environment-bar"><span>EDUCATION RANGE</span><i></i><span id="runtime-label">BROWSER SIMULATION</span><b>SYNTHETIC DATA</b><button id="lab-open-secondary" type="button">10 個鏈式任務 <span id="lab-progress-top">0/10</span> ↗</button></div>
+      <main id="main" tabindex="-1"></main>
+      <footer><span>VANTAGE // Synthetic orbital operations environment</span><span>虛構資料 · 隔離模擬 · 無真實衛星系統</span></footer>
+    </section>
+  </div>
+
+  <div id="lab-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="lab-drawer" class="lab-drawer" aria-labelledby="lab-title" aria-hidden="true">
+    <header><div><span class="eyebrow">BLACK ORBIT</span><h2 id="lab-title">Research Matrix</h2><p>Synthetic data · Isolated simulation</p></div><button id="lab-close" class="icon-btn" aria-label="關閉研究矩陣">×</button></header>
+    <div id="lab-summary" class="lab-summary"></div>
+    <div id="lab-missions" class="lab-missions"></div>
+    <div class="lab-footer"><button id="lab-reset" class="danger-ghost" type="button">重設整個模擬</button><a href="#/console" id="lab-console-link">開啟 Developer Console ↗</a></div>
+  </aside>
+
+  <dialog id="command-palette" class="palette">
+    <form method="dialog"><label for="palette-input">前往 VANTAGE 的任何位置</label><div class="palette-input"><span>⌕</span><input id="palette-input" autocomplete="off" placeholder="輸入頁面或資產名稱…"><button aria-label="關閉">ESC</button></div><div id="palette-results"></div></form>
+  </dialog>
+  <dialog id="confirm-reset" class="confirm-dialog"><form method="dialog"><span class="warning-icon">!</span><h2>重設研究模擬？</h2><p>所有證據、已完成任務和臨時權杖都會清除。這不影響任何外部系統。</p><div><button value="cancel">取消</button><button id="confirm-reset-button" value="confirm">重設模擬</button></div></form></dialog>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>
